@@ -23,6 +23,11 @@
                 <div class="card-body">
                     <h5 class="card-title text-center">{{$project->starting_date}}</h5>
                     <h6 class="card-title text-center">{{optional($project->type)->name}}</h6>
+                    <ul class="card-text justify-content-center d-flex gap-2 list-unstyled">
+                        @foreach($project->technologies as $technology)
+                            <li>{{$technology->name}}</li>
+                        @endforeach
+                    </ul>
                     <p class="card-text">{!!$project->description!!}</p>
                     <h5 class="card-title text-center">Link esterno:</h5>
                     <a href="{{$project->link}}">{{$project->link}}</a>

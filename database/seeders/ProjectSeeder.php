@@ -38,8 +38,8 @@ class ProjectSeeder extends Seeder
 
             $project->save();
 
-            $random_tech = $faker->randomElements($technology_ids, null);
-            $project->technologies()->attach($random_tech);
+            $random_technology_ids = $faker->randomElements($technology_ids, null);
+            $project->technologies()->attach($random_technology_ids);
 
         }
     }
