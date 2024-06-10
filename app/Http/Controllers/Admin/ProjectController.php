@@ -31,8 +31,10 @@ class ProjectController extends Controller
     {
 
         $types = Type::all();
+        $technologies = Technology::all();
 
-        return view('admin.projects.create', compact('types'));
+
+        return view('admin.projects.create', compact('types', 'technologies'));
     }
 
     /**
@@ -56,6 +58,10 @@ class ProjectController extends Controller
 
         $form_data['slug'] = $slug;
         $new_project = Project::create($form_data);
+        if($request->has('technologies')){
+            //$new_project -> technologies() -> attach($form_data['technologies']);
+            $new_project->technologies()->attach($request->technologies);
+        }
 
         return to_route('admin.projects.show', $new_project);
     }
