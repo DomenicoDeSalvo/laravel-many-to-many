@@ -38,7 +38,11 @@
                     <td>
                         <div class="d-flex gap-2">
                             <a class='btn btn-secondary' href="{{route('admin.projects.edit', $project)}}">Modifica</a>
-                            <button class="btn btn-danger delete">Elimina</button>
+                            <form class="delete" action="{{ route('admin.projects.destroy', $project) }}" method="POST">        
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger">Elimina</button>
+                            </form>
                         </div>
                     </td>
                 </tr>
@@ -58,15 +62,8 @@
               <p>E SE POI TE NE PENTI?</p>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">No</button>
-              <form action="{{ route('admin.projects.destroy', $project) }}" method="POST">
-                        
-                @csrf
-                @method('DELETE')
-
-                <button class="btn btn-danger delete">Si</button>
-            
-            </form> 
+                <button type="button" class="btn btn-secondary close" data-bs-dismiss="modal">No</button>
+                <button class="btn btn-danger confirm">Elimina</button>
             </div>
           </div>
         </div>

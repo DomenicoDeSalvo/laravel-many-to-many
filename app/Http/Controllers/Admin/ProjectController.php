@@ -42,7 +42,7 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {    
-         $form_data = $request->validated();
+        $form_data = $request->validated();
         $base_slug = Str::slug($form_data['title']);
         $slug = $base_slug;
         $n = 0;
@@ -101,6 +101,8 @@ class ProjectController extends Controller
             $project->technologies()->detach();
         };
 
+        //$project->technologies()->sync($request->technologies ?? []);
+
         return to_route('admin.projects.show', $project);
     }
 
@@ -109,6 +111,7 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
+        //$project->technologies()->detach();
         $project->delete();
         return to_route('admin.projects.index');
     }

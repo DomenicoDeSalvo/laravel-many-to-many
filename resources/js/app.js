@@ -8,17 +8,42 @@ import.meta.glob([
 //Codice per modale conferma eliminazione
 
 const deleteButtons = document.querySelectorAll('.delete');
+const removeElements = document.querySelectorAll('.remove');
 const modalElement = document.getElementById('modal');
 const closeElements = document.querySelectorAll('.close');
+//const confirmElements = document.querySelectorAll('.confirm');
 
+//DELETE NELLA INDEX
 
-for(let i = 0; i < deleteButtons.length; i++){
-    const deleteButton = deleteButtons[i];
+deleteButtons.forEach(deleteButton => {
 
-    deleteButton.addEventListener('click', function(){
+    // deleteButton.addEventListener('click', function(){
+    //     modalElement.classList.add('visible');
+    // });
+
+    deleteButton.addEventListener('submit',(e) => {
+        e.preventDefault()
+
+        // if(confirmElements.onclick){
+        //     deleteButton.submit()
+        // };
+
+        if(confirm('Vuoi eliminare questo post?')) {
+            deleteButton.submit()
+        }
+    });
+
+});
+
+//DELETE NELLA SHOW
+
+removeElements.forEach(removeElement => {
+
+    removeElement.addEventListener('click', function(){
         modalElement.classList.add('visible');
     });
-}
+});
+
 
 for(let i = 0; i < closeElements.length; i++){
 

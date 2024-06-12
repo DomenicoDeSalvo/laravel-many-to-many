@@ -11,7 +11,7 @@
     <div class="container my-4">
         <div class="d-flex justify-content-between my-3 ">
             <a class='btn btn-secondary' href="{{route('admin.projects.edit', $project)}}">Modifica</a>
-            <button class="btn btn-danger delete">Elimina</button>
+            <button class="btn btn-danger remove">Elimina</button>
         </div>
     </div>
     <div class="container text-center">
@@ -53,7 +53,7 @@
                 @csrf
                 @method('DELETE')
 
-                <button class="btn btn-danger delete">Si</button>
+                <button class="btn btn-danger">Si</button>
             
             </form> 
             </div>
