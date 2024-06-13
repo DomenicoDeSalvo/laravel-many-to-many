@@ -12,20 +12,20 @@ const modalElement = document.getElementById('modal');
 const closeElements = document.querySelectorAll('.close');
 //const confirmElements = document.querySelectorAll('.confirm');
 
-// removeElements.forEach(removeElement => {
+removeElements.forEach(removeElement => {
 
-//     removeElement.addEventListener('click', function(){
-//         modalElement.classList.add('visible');
-//     });
-// });
+    removeElement.addEventListener('click', function(){
+        modalElement.classList.add('visible');
+    });
+});
 
 
-// for(let i = 0; i < closeElements.length; i++){
+for(let i = 0; i < closeElements.length; i++){
 
-//     const closeElement = closeElements[i];
+    const closeElement = closeElements[i];
 
-//     closeElement.addEventListener('click', function(){
+    closeElement.addEventListener('click', function(){
     
-//         modalElement.classList.remove('visible');
-//     });
-// }
+        modalElement.classList.remove('visible');
+    });
+}
